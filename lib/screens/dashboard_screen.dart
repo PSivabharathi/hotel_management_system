@@ -1,247 +1,3 @@
-// // import 'package:flutter/material.dart';
-// // import 'package:hotel_management_system/screens/create_reservation_screen.dart';
-// // import 'reservations_list.dart';
-
-// // class DashboardScreen extends StatelessWidget {
-// //   const DashboardScreen({super.key});
-
-// //   @override
-// //   Widget build(BuildContext context) {
-// //     return Scaffold(
-// //       body: Container(
-// //         decoration: const BoxDecoration(
-// //           gradient: LinearGradient(
-// //             begin: Alignment.topLeft,
-// //             end: Alignment.bottomRight,
-// //             colors: [Color(0xFF6C63FF), Color(0xFF00C9A7)],
-// //           ),
-// //         ),
-// //         child: SafeArea(
-// //           child: Padding(
-// //             padding: const EdgeInsets.all(20.0),
-// //             child: Column(
-// //               crossAxisAlignment: CrossAxisAlignment.start,
-// //               children: [
-// //                 Row(
-// //                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-// //                   children: [
-// //                     const Text(
-// //                       'HMS Dashboard',
-// //                       style: TextStyle(
-// //                         color: Colors.white,
-// //                         fontSize: 26,
-// //                         fontWeight: FontWeight.bold,
-// //                       ),
-// //                     ),
-// //                     IconButton(
-// //                       onPressed: () {},
-// //                       icon: const Icon(
-// //                         Icons.notifications,
-// //                         color: Colors.white,
-// //                       ),
-// //                     ),
-// //                   ],
-// //                 ),
-// //                 const SizedBox(height: 20),
-// //                 Expanded(
-// //                   child: GridView.count(
-// //                     crossAxisCount: 2,
-// //                     childAspectRatio: 1.1,
-// //                     mainAxisSpacing: 16,
-// //                     crossAxisSpacing: 16,
-// //                     children: [
-// //                       _FeatureCard(
-// //                         title: 'Reservations',
-// //                         icon: Icons.event_note,
-// //                         routeBuilder: () => const CreateReservationScreen(),
-// //                       ),
-// //                       _FeatureCard(
-// //                         title: 'Reports',
-// //                         icon: Icons.bar_chart,
-// //                         routeBuilder: () => const ReservationsList(),
-// //                       ),
-// //                       _FeatureCard(
-// //                         title: 'Guests',
-// //                         icon: Icons.people,
-// //                         routeBuilder: () => const ReservationsList(),
-// //                       ),
-// //                       _FeatureCard(
-// //                         title: 'Settings',
-// //                         icon: Icons.settings,
-// //                         routeBuilder: () => const ReservationsList(),
-// //                       ),
-// //                     ],
-// //                   ),
-// //                 ),
-// //               ],
-// //             ),
-// //           ),
-// //         ),
-// //       ),
-// //     );
-// //   }
-// // }
-
-// // class _FeatureCard extends StatelessWidget {
-// //   final String title;
-// //   final IconData icon;
-// //   final Widget Function() routeBuilder;
-// //   const _FeatureCard({
-// //     required this.title,
-// //     required this.icon,
-// //     required this.routeBuilder,
-// //   });
-
-// //   @override
-// //   Widget build(BuildContext context) {
-// //     return GestureDetector(
-// //       onTap: () => Navigator.of(
-// //         context,
-// //       ).push(MaterialPageRoute(builder: (_) => routeBuilder())),
-// //       child: Container(
-// //         decoration: BoxDecoration(
-// //           color: Colors.white.withOpacity(0.9),
-// //           borderRadius: BorderRadius.circular(16),
-// //           boxShadow: [
-// //             BoxShadow(color: Colors.black.withOpacity(0.08), blurRadius: 8),
-// //           ],
-// //         ),
-// //         padding: const EdgeInsets.all(16),
-// //         child: Column(
-// //           crossAxisAlignment: CrossAxisAlignment.start,
-// //           children: [
-// //             CircleAvatar(
-// //               child: Icon(
-// //                 icon,
-// //                 size: 28,
-// //                 color: Theme.of(context).colorScheme.primary,
-// //               ),
-// //               backgroundColor: Colors.white,
-// //             ),
-// //             const Spacer(),
-// //             Text(
-// //               title,
-// //               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-// //             ),
-// //             const SizedBox(height: 6),
-// //             const Text(
-// //               'Tap to manage',
-// //               style: TextStyle(fontSize: 12, color: Colors.black54),
-// //             ),
-// //           ],
-// //         ),
-// //       ),
-// //     );
-// //   }
-// // }
-// import 'package:flutter/material.dart';
-// import 'package:hotel_management_system/screens/reports_screen.dart';
-// import 'package:hotel_management_system/screens/reservations_list.dart';
-// import 'package:hotel_management_system/screens/settings_screen.dart';
-
-// class DashboardScreen extends StatelessWidget {
-//   const DashboardScreen({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       backgroundColor: Colors.white,
-//       appBar: AppBar(
-//         title: const Text('Dashboard'),
-//         centerTitle: true,
-//         flexibleSpace: Container(
-//           decoration: const BoxDecoration(
-//             gradient: LinearGradient(
-//               colors: [Color(0xFF6A11CB), Color(0xFF2575FC)],
-//               begin: Alignment.topLeft,
-//               end: Alignment.bottomRight,
-//             ),
-//           ),
-//         ),
-//       ),
-//       body: GridView.count(
-//         crossAxisCount: 2,
-//         padding: const EdgeInsets.all(16.0),
-//         crossAxisSpacing: 16.0,
-//         mainAxisSpacing: 16.0,
-//         children: <Widget>[
-//           _buildDashboardItem(
-//             context,
-//             iconPath: 'assets/booking.png',
-//             label: 'Reservations',
-//             onTap: () {
-//               Navigator.push(
-//                 context,
-//                 MaterialPageRoute(
-//                   builder: (context) => const ReservationsList(),
-//                 ),
-//               );
-//             },
-//           ),
-//           _buildDashboardItem(
-//             context,
-//             iconPath: 'assets/guests.png',
-//             label: 'Guests',
-//             onTap: () {
-//               // You can create a guest list screen similar to the reservations list
-//             },
-//           ),
-//           _buildDashboardItem(
-//             context,
-//             iconPath: 'assets/report.png',
-//             label: 'Reports',
-//             onTap: () {
-//               Navigator.push(
-//                 context,
-//                 MaterialPageRoute(builder: (context) => const ReportsScreen()),
-//               );
-//             },
-//           ),
-//           _buildDashboardItem(
-//             context,
-//             iconPath: 'assets/cogwheel.png',
-//             label: 'Settings',
-//             onTap: () {
-//               Navigator.push(
-//                 context,
-//                 MaterialPageRoute(builder: (context) => const SettingsScreen()),
-//               );
-//             },
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-
-//   Widget _buildDashboardItem(
-//     BuildContext context, {
-//     String? iconPath, // path to your asset image
-//     required String label,
-//     required VoidCallback onTap,
-//   }) {
-//     return InkWell(
-//       onTap: onTap,
-//       child: Card(
-//         color: Colors.white,
-//         elevation: 4,
-//         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: <Widget>[
-//             if (iconPath != null)
-//               Image.asset(iconPath, width: 50, height: 50, fit: BoxFit.contain),
-//             const SizedBox(height: 10),
-//             Text(
-//               label,
-//               textAlign: TextAlign.center,
-//               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:hotel_management_system/screens/reports_screen.dart';
@@ -251,7 +7,6 @@ import 'package:hotel_management_system/screens/settings_screen.dart';
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
 
-  // List of images for the carousel
   static final List<String> imgList = [
     'assets/marten-bjork-n_IKQDCyrG0-unsplash.jpg',
     'assets/sara-dubler-Koei_7yYtIo-unsplash.jpg',
@@ -263,7 +18,7 @@ class DashboardScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
-        title: const Text('Dashboard'),
+        title: const Text('Dashboard', style: TextStyle(color: Colors.white)),
         centerTitle: true,
         flexibleSpace: Container(
           decoration: const BoxDecoration(
@@ -274,8 +29,10 @@ class DashboardScreen extends StatelessWidget {
             ),
           ),
         ),
+        iconTheme: IconThemeData(color: Colors.white),
       ),
       drawer: _buildDrawer(context),
+
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -430,6 +187,7 @@ class DashboardScreen extends StatelessWidget {
 
   Drawer _buildDrawer(BuildContext context) {
     return Drawer(
+      backgroundColor: Colors.white,
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
