@@ -13,7 +13,7 @@ class SettingsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings'),
+        title: const Text('Settings', style: TextStyle(color: Colors.white)),
         centerTitle: true,
         flexibleSpace: Container(
           decoration: const BoxDecoration(
@@ -22,6 +22,19 @@ class SettingsScreen extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
+          ),
+        ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Container(
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.black12,
+            ),
+            padding: const EdgeInsets.all(8),
+            child: const Icon(Icons.arrow_back, color: Colors.white, size: 22),
           ),
         ),
       ),
@@ -45,13 +58,19 @@ class SettingsScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     ListTile(
-                      leading: const Icon(Icons.person, color: Color(0xFF6A11CB)),
+                      leading: const Icon(
+                        Icons.person,
+                        color: Color(0xFF6A11CB),
+                      ),
                       title: const Text('Name'),
                       subtitle: Text(guest?.name ?? 'N/A'),
                     ),
                     const Divider(),
                     ListTile(
-                      leading: const Icon(Icons.phone, color: Color(0xFF6A11CB)),
+                      leading: const Icon(
+                        Icons.phone,
+                        color: Color(0xFF6A11CB),
+                      ),
                       title: const Text('Mobile Number'),
                       subtitle: Text(guest?.mobileNumber ?? 'N/A'),
                     ),
@@ -71,7 +90,9 @@ class SettingsScreen extends StatelessWidget {
                 onPressed: () {
                   guestProvider.logout();
                   Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(builder: (context) => const LoginScreen()),
+                    MaterialPageRoute(
+                      builder: (context) => const LoginScreen(),
+                    ),
                     (Route<dynamic> route) => false,
                   );
                 },

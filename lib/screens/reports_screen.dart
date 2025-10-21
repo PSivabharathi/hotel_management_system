@@ -7,7 +7,7 @@ class ReportsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Reports'),
+        title: const Text('Reports', style: TextStyle(color: Colors.white)),
         centerTitle: true,
         flexibleSpace: Container(
           decoration: const BoxDecoration(
@@ -16,6 +16,19 @@ class ReportsScreen extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
+          ),
+        ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Container(
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.black12,
+            ),
+            padding: const EdgeInsets.all(8),
+            child: const Icon(Icons.arrow_back, color: Colors.white, size: 22),
           ),
         ),
       ),

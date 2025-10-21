@@ -12,13 +12,28 @@ class ReservationsList extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = Provider.of<ReservationProvider>(context);
     return Scaffold(
-      appBar: AppBar(title: const Text('Reservations')),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: const Text('Reservations'),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Container(
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.black12,
+            ),
+            padding: const EdgeInsets.all(8),
+            child: const Icon(Icons.arrow_back, color: Colors.black, size: 22),
+          ),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(
           children: [
             ElevatedButton.icon(
-              
               onPressed: () => Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (_) => const CreateReservationScreen(),
@@ -40,6 +55,7 @@ class ReservationsList extends StatelessWidget {
                       ),
                     )
                   : ListView.separated(
+                    
                       itemCount: provider.items.length,
                       separatorBuilder: (_, __) => const SizedBox(height: 10),
                       itemBuilder: (ctx, i) =>
